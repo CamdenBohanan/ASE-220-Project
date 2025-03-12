@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cogitator</title>
+    <link href="Stolen_StyleSheet/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="themesflat-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="action__body">
+                    <div class="col text-center">
+                        <h3 class="dark_text">Cogitator is a dedicated campaign tracker website. Whether it be a
+                            campaign for the
+                            entire community to participate in or a private narrative campaign you run with your
+                            friends,
+                            Cogitator will be there to help. You can make any campaign for game systems from Warhammer
+                            40k
+                            to Mordheim and share it with the community.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="post-detail-container"></div>
+    <footer id="footer">
+        <div class="themesflat-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-content flex flex-grow">
+                        <div class="widget-logo flex-grow">
+                            <div class="logo-footer" id="logo-footer">
+                                <a href="index.html">
+                                    <div class="tf-color">
+                                        <h1>Cogitator</h1>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="widget widget-menu style-1">
+                            <h5 class="title-widget">Latest Games</h5>
+                            <ul>
+                                <li><a href="#">Trench Crusade</a></li>
+                                <li><a href="#">Baron's War</a></li>
+                                <li><a href="#">Blood Oath</a></li>
+                            </ul>
+                        </div>
+                        <div class="widget widget-menu style-2">
+                            <h5 class="title-widget">Resource</h5>
+                            <ul>
+                                <li><a href="#">Help center</a></li>
+                                <li><a href="#">Discover</a></li>
+                            </ul>
+                        </div>
+                        <div class="widget widget-menu style-3">
+                            <h5 class="title-widget">Account</h5>
+                            <ul>
+                                <li><a href="#">Make Post</a></li>
+                                <li><a href="#">My Collection</a></li>
+                                <li><a href="#">Author Profile</a></li>
+                            </ul>
+                        </div>
+                        <div class="widget-last">
+                            <div class="widget-menu style-4">
+                                <h5 class="title-widget">Company</h5>
+                                <ul>
+                                    <li><a href="#">Help center</a></li>
+                                    <li><a href="#">Platform status</a></li>
+                                </ul>
+                            </div>
+                            <h5 class="title-widget mt-30">Join the community</h5>
+                            <div class="widget-social">
+                                <ul class="flex">
+                                    <li><a href="#" class="icon-facebook"></a></li>
+                                    <li><a href="#" class="icon-twitter"></a></li>
+                                    <li><a href="#" class="icon-vt"></a></li>
+                                    <li><a href="#" class="icon-tiktok"></a></li>
+                                    <li><a href="#" class="icon-youtube"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Cogitator - Made By Combo</p>
+                <ul class="flex">
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Service</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const postDetailContainer = document.getElementById("post-detail-container");
+            const selectedPostTitle = localStorage.getItem("selectedPost");
+
+            if (!selectedPostTitle) {
+                postDetailContainer.innerHTML = "<p>Post not found.</p>";
+                return;
+            }
+
+            try {
+                let response = await fetch('https://jsonblob.com/api/jsonBlob/1349097345740103680');
+                let posts = await response.json();
+
+                const post = posts.find(p => p.post === selectedPostTitle);
+
+                if (!post) {
+                    postDetailContainer.innerHTML = "<p>Post not found.</p>";
+                    return;
+                }
+
+                postDetailContainer.innerHTML = `
+                <div class="action__body2">
+                    <div class="post-detail">
+                        <h1>${post.post}</h1>
+                        <img src="${post.image}" alt="Post Image">
+                        <p><strong>Created by:</strong> ${post.poster}</p>
+                        <p><strong>Category:</strong> ${post.game}</p>
+                        <p>${post.content}</p>
+                        <p><strong>Posted on:</strong> ${post.date || "Unknown Date"}</p>
+                    </div>
+                </div
+                `;
+            } catch (error) {
+                console.error('Error fetching post detail:', error);
+                postDetailContainer.innerHTML = "<p>Failed to load post details. Please try again later.</p>";
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="Stolen_Script/jquery.min.js"></script>
+    <script src="Stolen_Script/popper.min.js"></script>
+    <script src="Stolen_Script/bootstrap.bundle.min.js"></script>
+    <script src="Stolen_Script/bootstrap.min.js"></script>
+    <script src="Stolen_Script/swiper-bundle.min.js"></script>
+    <script src="Stolen_Script/swiper.js"></script>
+    <script src="Stolen_Script/count-down.js"></script>
+    <script src="Stolen_Script/simpleParallax.min.js"></script>
+    <script src="Stolen_Script/gsap.js"></script>
+    <script src="Stolen_Script/SplitText.js"></script>
+    <script src="Stolen_Script/wow.min.js"></script>
+    <script src="Stolen_Script/ScrollTrigger.js"></script>
+    <script src="Stolen_Script/gsap-animation.js"></script>
+    <script src="Stolen_Script/tsparticles.min.js"></script>
+    <script src="Stolen_Script/tsparticles.js"></script>
+    <script src="Stolen_Script/main.js"></script>
+
+</body>
+
+</html>
