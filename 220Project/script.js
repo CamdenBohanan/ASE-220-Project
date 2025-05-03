@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const loggedInUser = localStorage.getItem("loggedInUser") || "Guest";
+    const loggedInUser = localStorage.getItem("Guest");
     const blogContainer = document.getElementById("blog-container");
     const loadMoreButton = document.getElementById("load-more-btn");
-    let visiblePosts = 3;
+    let visiblePosts = 6;
     let allPosts = [];
 
     if (document.getElementById("post-form")) {
@@ -11,21 +11,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     async function processJSON() {
         try {
-            let response = await fetch('https://jsonblob.com/api/jsonBlob/1349097345740103680');
-            if (!response.ok) throw new Error("Failed to fetch data");
-            
-            let posts = await response.json();
-            let savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
-            allPosts = [...savedPosts, ...posts];
-            
+            const response = await fetch('https://jsonblob.com/api/jsonBlob/1367682705415921664');
+            const posts = await response.json();
+            allPosts = posts;
+            localStorage.setItem("posts", JSON.stringify(posts));
             loadPostCards(visiblePosts);
         } catch (error) {
             console.error('Error fetching posts:', error);
-            blogContainer.innerHTML = "<p>Failed to load posts. Please try again later.</p>";
+            if (blogContainer) {
+                blogContainer.innerHTML = "<p>Failed to load posts. Please try again later.</p>";
+            }
         }
     }
+    processJSON(); // Initial load
 
     function loadPostCards(limit) {
+        if (!blogContainer) return;
         blogContainer.innerHTML = "";
         allPosts.slice(0, limit).forEach((post) => {
             const postElement = document.createElement("div");
@@ -35,8 +36,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             postElement.innerHTML = `
                 <div class="tf-card-box">
                     ${post.poster === loggedInUser ? '<button class="edit-btn">Edit</button>' : ''}
-                    <div class="card-media">
-                        <img src="${post.image}" alt="Post Image">
+                    <div class="card-media contain">
+                        <div class="picture">
+                            <img src="${post.image}" alt="Post Image">
+                        </div>
                     </div>
                     <div class="meta-info text-center">
                         <h5 class="name">${post.post}</h5>
@@ -47,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                                 <h6>${post.poster}</h6>
                             </div>
                         </div>
-                        <button class="read-more-btn">Read More</button>
+                        <button class="read-more-btn" data-id="${post.post}">Read More</button>
                         <button class="delete-btn btn-danger">Delete</button>
                     </div>
                 </div>`;
@@ -55,29 +58,48 @@ document.addEventListener("DOMContentLoaded", async function () {
             blogContainer.appendChild(postElement);
         });
 
-        loadMoreButton.style.display = (visiblePosts >= allPosts.length) ? "none" : "block";
+        if (loadMoreButton) {
+            loadMoreButton.style.display = (visiblePosts >= allPosts.length) ? "none" : "block";
+        }
+
         addDeleteFunctionality();
         addEditFunctionality();
         addReadMoreFunctionality();
+        setupPostForm();
     }
 
     function addDeleteFunctionality() {
         document.querySelectorAll(".delete-btn").forEach(button => {
-            button.addEventListener("click", function () {
-                const postTitle = this.closest(".blog-post").querySelector("h5").textContent;
+            button.addEventListener("click", async function () {
+                const postElement = this.closest(".blog-post");
+                const postTitle = postElement.querySelector("h5").textContent;
                 let savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
+    
+                // Remove the post from localStorage
                 savedPosts = savedPosts.filter(post => post.post !== postTitle);
                 localStorage.setItem("posts", JSON.stringify(savedPosts));
-                this.closest(".blog-post").remove();
+    
+                try {
+                    // Call updatePost to send the updated list to the server
+                    await updatePost(savedPosts);  // Pass the updated posts array to the updatePost function
+                    console.log('Post deleted successfully');
+                    // After successful update, remove the post from the DOM
+                    postElement.remove();
+                } catch (error) {
+                    console.error('Error updating the server after deletion:', error);
+                    alert("Failed to delete the post. Please try again.");
+                }
             });
         });
     }
+    
+
     function addReadMoreFunctionality() {
         document.querySelectorAll(".read-more-btn").forEach(button => {
             button.addEventListener("click", function () {
                 const postTitle = this.getAttribute("data-id");
                 localStorage.setItem("selectedPost", postTitle);
-                window.location.href = "post-detail.html"; // Navigate to the detail page
+                window.location.href = "post-detail.html";
             });
         });
     }
@@ -90,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 let savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
                 let postIndex = savedPosts.findIndex(post => post.post === postTitle);
                 if (postIndex === -1) return;
-                
+
                 let post = savedPosts[postIndex];
                 postElement.innerHTML = `
                     <div class="tf-card-box">
@@ -99,18 +121,19 @@ document.addEventListener("DOMContentLoaded", async function () {
                         </div>
                         <div class="meta-info text-center">
                             <input type="text" id="edit-title" value="${post.post}" class="form-control">
-                            <textarea id="edit-content" class="form-control">${post.content || ""}</textarea>
                             <button class="save-edit-btn btn-success">Save</button>
                             <button class="cancel-edit-btn btn-secondary">Cancel</button>
                         </div>
                     </div>`;
-                
+
                 postElement.querySelector(".save-edit-btn").addEventListener("click", function () {
                     post.post = document.getElementById("edit-title").value;
-                    post.content = document.getElementById("edit-content").value;
                     savedPosts[postIndex] = post;
                     localStorage.setItem("posts", JSON.stringify(savedPosts));
-                    loadPostCards(visiblePosts);
+
+                    axios.put('https://jsonblob.com/api/jsonBlob/1367682705415921664', savedPosts)
+                        .then(() => loadPostCards(visiblePosts))
+                        .catch(error => console.error('Error saving edit:', error));
                 });
 
                 postElement.querySelector(".cancel-edit-btn").addEventListener("click", function () {
@@ -122,33 +145,33 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (loadMoreButton) {
         loadMoreButton.addEventListener("click", function () {
-            visiblePosts += 3;
+            visiblePosts += 6;
             loadPostCards(visiblePosts);
         });
     }
-
     function setupPostForm() {
         const postForm = document.getElementById("post-form");
         if (!postForm) {
             console.error("Form not found!");
             return;
         }
-
+    
         postForm.addEventListener("submit", function (event) {
             event.preventDefault();
-
+    
             const usergame = document.getElementById("category-select").value;
-            const imageuser = "Images/Profilepics/image18.jpeg";
+            const imageuser = "Images/Profilepics/image18.jpeg";  // This could be dynamically set based on the user
             const title = document.getElementById("post-title").value;
-            const content = document.getElementById("post-content").value;
-            const username = localStorage.getItem("loggedInUser") || "Guest";
-            const defaultAvatar = localStorage.getItem("userAvatar") || "Images/Profilepics/image23.jpeg";
-
-            if (!title || !content) {
+            const username = localStorage.getItem("Guest");  // Assuming you have a 'Guest' key in localStorage for the logged-in user
+            const defaultAvatar = "Images/Profilepics/image23.jpeg";  // You might want to allow the user to select an avatar
+    
+            // Check if the title is empty, and show an alert if so
+            if (!title) {
                 alert("Please fill in all fields.");
                 return;
             }
-
+    
+            // Create the new post object
             const newPost = {
                 image: imageuser,
                 game: usergame,
@@ -156,43 +179,79 @@ document.addEventListener("DOMContentLoaded", async function () {
                 poster: username,
                 avatar: defaultAvatar,
                 datacategory: usergame,
-                content: content
+            };
+    
+            
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+    
+            
+            posts.unshift(newPost);  
+    
+            
+            localStorage.setItem("posts", JSON.stringify(posts));
+    
+
+            updatePost(posts) 
+                .then(() => {
+                    
+                    window.location.href = "Gallery.html";
+                })
+                .catch((error) => {
+                    console.error('Error updating post to JSONBlob:', error);
+                    alert("An error occurred while saving the post.");
+                });
+        });
+    }
+    
+    async function updatePost(updatedPosts) {
+        try {
+            const response = await fetch('https://jsonblob.com/api/jsonBlob/1367682705415921664', {
+                method: 'PUT', // The method to update data
+                headers: {
+                    'Content-Type': 'application/json', // The request body is in JSON format
+                },
+                body: JSON.stringify(updatedPosts), // Send the updated posts as the body of the PUT request
+            });
+    
+            if (response.ok) {
+                const updatedData = await response.json();
+                console.log('Posts updated successfully:', updatedData);
+                localStorage.setItem("posts", JSON.stringify(updatedData)); 
+            } else {
+                throw new Error('Failed to update posts');
+            }
+        } catch (error) {
+            console.error('Error updating posts:', error);
+            alert("Failed to update posts. Please try again.");
+        }
+    }
+    
+
+    
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const validUsers = {
+                "guest": "guest123"
             };
 
-            let posts = JSON.parse(localStorage.getItem("posts")) || [];
-            posts.unshift(newPost);
-            localStorage.setItem("posts", JSON.stringify(posts));
-
-     axios.put('https://jsonblob.com/api/jsonBlob/1349097345740103680', posts)
-    .then(function(response) {
-        console.log('Post updated:', response.data);
-    
-    })
-    .catch(function(error) {
-        console.error('Error:', error);
-        alert("An error occurred while updating the post.");
-    });
-        window.location.href = "Gallery.html"; 
+            if (validUsers[username] && validUsers[username] === password) {
+                alert("Login successful! Redirecting...");
+                localStorage.setItem("loggedInUser", username);
+                window.location.href = "Index.html";
+            } else {
+                document.getElementById("error-message").textContent = "Invalid username or password!";
+            }
         });
     }
 
-    processJSON();
+
+    
 });
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
 
-    const validUsers = {
-        "guest": "guest123"
-    };
 
-    if (validUsers[username] && validUsers[username] === password) {
-        alert("Login successful! Redirecting...");
-        localStorage.setItem("loggedInUser", username);
-        window.location.href = "Index.html"; 
-    } else {
-        document.getElementById("error-message").textContent = "Invalid username or password!";
-    }
-});

@@ -1052,6 +1052,20 @@ label.error {
 .w242 {
     width: 242.5px;
 }
+.picture {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    margin: 15px auto;
+}
+.contain{
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 600px;
+}
 .rotateZ90 {
     transform: rotateZ(90deg);
 }
@@ -1074,6 +1088,11 @@ label.error {
     overflow: hidden;
     max-width: 100%;
     height: 100%;
+}
+
+.comptext {
+    font-family: "Fira Mono", monospace;
+
 }
 
 /* link style

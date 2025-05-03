@@ -1681,7 +1681,7 @@
 }
 
 .flat-pages-title .swiper-3d-7 .tf-card-box .card-media img {
-    height: 338px !important;
+    height: 350px !important;
 }
 
 /* swiper-container */
@@ -1692,7 +1692,8 @@
     z-index: 1;
     overflow: hidden;
     list-style: none;
-    padding: 0px;
+    height: 600px;
+    padding: 10px;
 }
 
 .flat-pages-title .swiper,
@@ -1793,7 +1794,7 @@
 
 /* featured-item style-bottom */
 .style-bottom .swiper-wrapper {
-    padding-bottom: 14px;
+    padding-bottom: 5px;
 }
 
 .style-bottom .swiper-pagination-bullet {
@@ -2360,7 +2361,7 @@
     padding: 50px 40px;
     margin-left: 5px;
     margin-right: 5px;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
 
@@ -4050,7 +4051,7 @@ button.follow:hover {
 
 #favorite .style-bottom .swiper-wrapper,
 #tf-collection .style-bottom .swiper-wrapper {
-    padding-bottom: 25px;
+    padding-bottom: 0px;
 }
 
 /* connect-wallet */

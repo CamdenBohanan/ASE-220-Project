@@ -1,0 +1,22 @@
+### This API retrieves a document for JSONblob
+GET https://jsonblob.com/api/jsonBlob/1351551075014074368
+
+### This API request creates a new document on JSONblob
+POST https://jsonblob.com/api/jsonBlob
+
+{
+    "name":"Bohanan"
+
+}
+
+
+### This API request changes the information in a JSONblob request
+PUT https://jsonblob.com/api/jsonBlon/1351551075014074368
+
+{
+    "name":"Mickey Mouse"
+}
+
+### This API request deletes a JSONblob document
+DELETE  http://jsonblob.com/ape/jsonBlob/1351551075014074368
+
