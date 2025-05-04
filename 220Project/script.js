@@ -75,15 +75,12 @@ document.addEventListener("DOMContentLoaded", async function () {
                 const postTitle = postElement.querySelector("h5").textContent;
                 let savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
     
-                // Remove the post from localStorage
                 savedPosts = savedPosts.filter(post => post.post !== postTitle);
                 localStorage.setItem("posts", JSON.stringify(savedPosts));
     
                 try {
-                    // Call updatePost to send the updated list to the server
-                    await updatePost(savedPosts);  // Pass the updated posts array to the updatePost function
+                    await updatePost(savedPosts);  
                     console.log('Post deleted successfully');
-                    // After successful update, remove the post from the DOM
                     postElement.remove();
                 } catch (error) {
                     console.error('Error updating the server after deletion:', error);
@@ -160,18 +157,18 @@ document.addEventListener("DOMContentLoaded", async function () {
             event.preventDefault();
     
             const usergame = document.getElementById("category-select").value;
-            const imageuser = "Images/Profilepics/image18.jpeg";  // This could be dynamically set based on the user
+            const imageuser = "Images/Profilepics/image18.jpeg";  
             const title = document.getElementById("post-title").value;
-            const username = localStorage.getItem("Guest");  // Assuming you have a 'Guest' key in localStorage for the logged-in user
-            const defaultAvatar = "Images/Profilepics/image23.jpeg";  // You might want to allow the user to select an avatar
+            const username = localStorage.getItem("Guest");  
+            const defaultAvatar = "Images/Profilepics/image23.jpeg";  
     
-            // Check if the title is empty, and show an alert if so
+            
             if (!title) {
                 alert("Please fill in all fields.");
                 return;
             }
     
-            // Create the new post object
+            
             const newPost = {
                 image: imageuser,
                 game: usergame,
@@ -206,11 +203,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     async function updatePost(updatedPosts) {
         try {
             const response = await fetch('https://jsonblob.com/api/jsonBlob/1367682705415921664', {
-                method: 'PUT', // The method to update data
+                method: 'PUT', 
                 headers: {
-                    'Content-Type': 'application/json', // The request body is in JSON format
+                    'Content-Type': 'application/json', 
                 },
-                body: JSON.stringify(updatedPosts), // Send the updated posts as the body of the PUT request
+                body: JSON.stringify(updatedPosts), 
             });
     
             if (response.ok) {
