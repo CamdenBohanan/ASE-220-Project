@@ -1,0 +1,182 @@
+[
+  {
+    "image": "Images/image2.jpg",
+    "game": "Mordheim",
+    "post": "Mordheim: Shadowlord Crusade",
+    "poster": "BlazingOmen",
+    "avatar": "Images/Profilepics/image1.jpeg",
+    "datacategory": "Mordheim",
+    "id": "#1a5d86",
+    "description": "This campaign introduces a set of custom rules for urban skirmishes, emphasizing stealth and scavenging. Players must navigate narrow alleys and collapsing buildings while contending with rival warbands. Each battle includes environmental hazards and dynamic objectives that shift mid-game. Victory points are awarded based on control zones and artifact recovery. Detailed battlereports provide turn-by-turn strategy insights."
+  },
+  {
+    "image": "Images/image14.jpg",
+    "game": "Conquest",
+    "post": "Conquest: Blood Oath",
+    "poster": "EchoFang",
+    "avatar": "Images/Profilepics/image10.jpeg",
+    "datacategory": "Conquest",
+    "id": "#8dabe9",
+    "description": "In 'Blood Oath', factions rally under ancient banners for territorial dominance. The campaign includes new allegiance mechanics and escalating conflict rules. Battles are fast-paced, with strategic deployment zones and randomized objectives. Post-battle consequences influence future matchups and resource distribution. A full compendium is included outlining scenarios, tactics, and lore."
+  },
+  {
+    "image": "Images/image6.jpg",
+    "game": "W.O.W",
+    "post": "W.O.W: Northern Tide",
+    "poster": "StormHammerX",
+    "avatar": "Images/Profilepics/image17.jpeg",
+    "datacategory": "W.O.W",
+    "id": "#67c9f2",
+    "description": "Northern Tide expands the W.O.W universe with frost-covered terrain and siege-focused scenarios. The ruleset introduces frozen hazards and line-of-sight impairments. Commanders must adapt quickly as blizzards can shift the tide of war unexpectedly. Campaign logs detail key encounters, critical dice rolls, and turning points. Each match contributes to a persistent world state."
+  },
+  {
+    "image": "Images/image1.jpg",
+    "game": "W.O.W",
+    "post": "W.O.W: The Iron Tithe",
+    "poster": "ShadowVanguard",
+    "avatar": "Images/Profilepics/image7.jpeg",
+    "datacategory": "W.O.W",
+    "id": "#c31832",
+    "description": "The Iron Tithe chronicles a crusade across the ruined kingdoms of W.O.W, where alliances are fragile and betrayal is common. Special rules encourage faction diplomacy and espionage. Units gain experience and unlock relics tied to the campaign’s narrative. Multiple battlereports showcase both large-scale and skirmish-level engagements. Endgame objectives tie directly to player choices in earlier battles."
+  },
+  {
+    "image": "Images/image7.jpg",
+    "game": "W.O.W",
+    "post": "W.O.W: The Ravenous Host",
+    "poster": "IronWraith07",
+    "avatar": "Images/Profilepics/image9.jpeg",
+    "datacategory": "W.O.W",
+    "id": "#2f9d52",
+    "description": "Ravenous Host introduces new siege mechanics and relentless swarm tactics. Campaign missions challenge defenders to hold out against overwhelming odds. Specialized scenarios involve timed objectives and desperation reinforcements. Each player’s faction evolves across battles, gaining perks and setbacks. Battle summaries highlight tactical innovations and heroic moments."
+  },
+  {
+    "image": "Images/image16.jpeg",
+    "game": "WH40K",
+    "post": "WH40K: No Gods No Masters",
+    "poster": "WarpKnight",
+    "avatar": "Images/Profilepics/image3.jpeg",
+    "datacategory": "WH40K",
+    "id": "#ad51f8",
+    "description": "This grimdark campaign removes traditional command structures in favor of anarchic warbands vying for dominance. Players must manage limited resources while surviving chaos incursions and betrayal. The battlefield evolves after each game, reflecting the chaos spreading. Extensive battlereports capture the brutality and sudden shifts in power. Strategic misdirection is as vital as brute force."
+  },
+  {
+    "image": "Images/image11.jpg",
+    "game": "Conquest",
+    "post": "Conquest: The Crimson Crown",
+    "poster": "GrimHunter42",
+    "avatar": "Images/Profilepics/image20.jpeg",
+    "datacategory": "Mordheim",
+    "id": "#f1a73c",
+    "description": "The Crimson Crown is a conquest-driven campaign with layered political intrigue. Players can form uneasy alliances or sabotage one another through espionage mechanics. The terrain and weather conditions shift dramatically between matches, adding unpredictability. Rich lore entries accompany each battlereport, building a detailed saga. Reputation systems impact victory conditions and story outcomes."
+  },
+  {
+    "image": "Images/image3.jpg",
+    "game": "Mordheim",
+    "post": "Chaos Cults Rising",
+    "poster": "PhantomWraith10",
+    "avatar": "Images/Profilepics/image2.jpeg",
+    "datacategory": "W.O.W",
+    "id": "#d82379",
+    "description": "Chaos Cults Rising is a narrative-heavy campaign focusing on corruption and infiltration. Each scenario presents moral choices that can alter the course of the campaign. Cult mechanics include hidden agendas, ritual events, and public chaos levels. Detailed post-match logs reveal how small skirmishes ripple into major upheavals. Players must balance brute force with subtle influence."
+  },
+  {
+    "image": "Images/image18.jpg",
+    "game": "Conquest",
+    "post": "Legions at War: Siege of Dawn",
+    "poster": "DarkBlazeHunter",
+    "avatar": "Images/Profilepics/image21.jpeg",
+    "datacategory": "Conquest",
+    "id": "#44bb7f",
+    "description": "Siege of Dawn focuses on attrition warfare and fortified objectives. Each player constructs siege engines and defensive structures using a modular terrain system. Rules reward logistical planning and morale management over brute strength. Weather effects and nighttime raids add tactical variety. Campaign logs show each faction’s rise and fall through cinematic battlereports."
+  },
+  {
+    "image": "Images/image5.jpg",
+    "game": "W.O.W",
+    "post": "Bretonnian Crusade Begins",
+    "poster": "FrostHunter",
+    "avatar": "Images/Profilepics/image4.jpeg",
+    "datacategory": "W.O.W",
+    "id": "#5f59f1",
+    "description": "Set in the sacred lands of Bretonnia, this campaign explores knightly orders and divine intervention mechanics. Players choose between chivalry or dark bargains that influence unit morale and magic. Scenarios involve holy relic hunts, siege defenses, and duels of honor. Victories impact the favor of the Lady, tracked through divine points. Journals provide a rich historical recount of events."
+  },
+  {
+    "image": "Images/image21.jpeg",
+    "game": "Necro",
+    "post": "House Goliath Turf War",
+    "poster": "MysticDread42",
+    "avatar": "Images/Profilepics/image6.jpeg",
+    "datacategory": "Necro",
+    "id": "#94e5c3",
+    "description": "House Goliath Turf War pits brute strength against cunning ambushes in the Underhive. Gang reputation and brutality dictate campaign progression. New mechanics for gang morale, sabotage, and territory defense create deep replayability. Each match includes individual fighter growth and gang narratives. The battlereports are gritty, focused on close-range mayhem."
+  },
+  {
+    "image": "Images/image22.jpeg",
+    "game": "T.C",
+    "post": "Ironclad Regiments Clash",
+    "poster": "ObsidianAbyssal",
+    "avatar": "Images/Profilepics/image18.jpeg",
+    "datacategory": "T.C",
+    "id": "#0a9ef4",
+    "description": "Ironclad Regiments Clash introduces steam-powered warfare and trench-style combat. The campaign includes mechanical reliability checks and fuel logistics. Players must control supply lines while fending off assaults. Armor penetration and artillery become central mechanics. Battle records include explosive breakthroughs and iron titan duels."
+  },
+  {
+    "image": "Images/image1.png",
+    "game": "WH40K",
+    "post": "Dark Eldar Incursion",
+    "poster": "VexNightshade",
+    "avatar": "Images/Profilepics/image19.jpeg",
+    "datacategory": "W.O.W",
+    "id": "#ee3047",
+    "description": "A lightning-fast campaign focusing on speed, raiding, and slave capture mechanics. The Dark Eldar bring fear-based rules and morale-destroying abilities. Each mission rewards mobility and psychological warfare over direct conflict. The campaign plays out in real-time phases with minimal downtime. Battlereports are filled with daring escapes and surgical strikes."
+  },
+  {
+    "image": "Images/image12.jpg",
+    "game": "Conquest",
+    "post": "Sorcerer Kings Rise",
+    "poster": "Dirlewanger",
+    "avatar": "Images/Profilepics/image9.jpeg",
+    "datacategory": "Conquest",
+    "id": "#d91bc7",
+    "description": "Magic floods the battlefield in this campaign that adds spell fatigue, rituals, and magical terrain. Players must harness arcane sources to boost their armies. Magic events between turns reshape the strategic landscape. Custom spellbooks and enchanted items offer deep tactical options. Each session ends with a prophecy roll affecting future outcomes."
+  },
+  {
+    "image": "Images/image23.jpeg",
+    "game": "Mordheim",
+    "post": "Skaven Tunnels Discovered",
+    "poster": "EdgyMcedge",
+    "avatar": "Images/Profilepics/image11.jpeg",
+    "datacategory": "Mordheim",
+    "id": "#5ab320",
+    "description": "This Skaven-focused campaign reveals an underground world full of traps, ambushes, and warpstone veins. The tunnels shift between games, forcing constant map adaptations. Skaven units can use tunnel-specific abilities for guerrilla warfare. Narrative events explore internal clan politics and sabotage. Reports dive into multi-layered battles and deadly terrain."
+  },
+  {
+    "image": "Images/image15.jpg",
+    "game": "Necro",
+    "post": "Underhive Raiders Attacked",
+    "poster": "IamKroot",
+    "avatar": "Images/Profilepics/image12.jpeg",
+    "datacategory": "Necro",
+    "id": "#1144aa",
+    "description": "A desperate defense campaign where each win secures vital resources for survival. Attackers must break through complex barricades and defenses in multi-phase missions. The campaign includes morale-breaking events and rogue AI hazards. Each battlereport emphasizes tension, loss, and grim resolve. New settlement mechanics give players choices beyond the battlefield."
+  },
+  {
+    "image": "Images/image19.jpeg",
+    "game": "W.O.W",
+    "post": "Empire vs Chaos: Final Battle",
+    "poster": "CoolyMccool",
+    "avatar": "Images/Profilepics/image13.jpeg",
+    "datacategory": "W.O.W",
+    "id": "#fcd730",
+    "description": "This climactic campaign concludes a multi-season conflict. The map is fully persistent and reflects all prior victories and defeats. Unique heroes and legendary items come into play, adding RPG elements. The final battle spans multiple tables and involves coordinated team strategy. A complete campaign logbook chronicles the saga’s final act."
+  },
+  {
+    "image": "Images/image22.jpeg",
+    "game": "T.C",
+    "post": "No Man's Land Night Raid",
+    "poster": "AlucardSucker",
+    "avatar": "Images/Profilepics/image14.jpeg",
+    "datacategory": "T.C",
+    "id": "#0fa1f0",
+    "description": "This night-time campaign emphasizes stealth and sabotage under cover of darkness. Rules for limited visibility, flare guns, and silent takedowns introduce new tension. Scenarios are short but brutal, with time constraints and extraction goals. Players can level up operatives with specialized night gear. Each report reads like a war journal, raw and tense."
+  }
+]
